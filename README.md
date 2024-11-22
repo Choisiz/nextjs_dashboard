@@ -97,4 +97,46 @@
 
 ### Suspense
 
+- 리액트기능
 - 일부 조건이 충족될 때까지(예: 데이터가 로드됨) 애플리케이션의 렌더링 부분을 연기
+- 데이터를 비동기적으로 로드시에 사용
+- 리액트이므로 브라우저에서 리액트가 초기화(실행완료)되어야 작동
+
+### Partial Prerendering
+
+- 서버에서 미리 html생성후 필요한 부분만 로드
+- Suspense를 활용해서 동적으로 데이터를 처리하면서 정적 콘텐츠를 미리  
+  랜더링해서 빠르게 제공
+- 클라이언트와 서버 모두 사용
+
+# 검색 및 페이지 매김
+
+### useSearchParams
+
+- 현재 URL의 매개변수에 액세스가능
+- ex) /dashboard/invoices?page=1&query=pending => 매개변수: {page: '1', query: 'pending'}
+- ?를 기준으로 찾는다.
+- &: 매개변수 구분자
+- %: URL 인코딩된 문자를 해석해 처리.
+- ^: 특별한 기능 없이 값의 일부로 간주.
+- #: 클라이언트에서만 해석되고 매개변수로 전달되지 않음.
+- URLSearchParams: 브라우저 내장클래스: 매개변수를 자동으로 쉽게 구분해주는 기능
+  - get(key): 주어진 키에 해당하는 값 가져옴 (기준: =)
+  - set(key, value): 주어진 키에 값을 설정, 매개변수 수정 (기준: =)
+  - delete(key): 특정 키-값 쌍을 삭제
+  - has(key): 특정 키존재여부(boolean)
+  - append(key, value): 기존키에 새로운값 추가
+  - toString(): 쿼리문자열로 변환
+
+### usePathname
+
+- 현재 URL의 경로 이름을 읽을 수 있다
+- URL에서 ? 이전의 경로
+- ex) /dashboard/invoices
+
+### useRouter
+
+### input
+
+- <input onChange={(e) => {handleSearch(e.target.value)}}/> 문제점은 타이핑때마다가 기록
+- 해결법: 디바운싱(속도를 제한): 타이핑을 멈췄을때만
