@@ -186,9 +186,23 @@
 - Oauth: 애플리케이션에서 직접 관리하지 않고 구글,네이버 등이 대신 인증을 처리해주는 방식, 즉 인증방식 중 하나 : 인증표준
 - Passport: 인증라이브러리, oauth, 로컬로그인 등을 쉽게 구현하도록 도와주는 라이브러리
   - 어떤 방식의 인증을 쓸것인지, 실패/성공 등 처리지원
+- NextAuth: Passport를 대신할수 있는 라이브러리
 - 처리방식
   사용자가 "구글로 로그인" 버튼을 클릭 → 서버에 요청.
   서버에서 auth.js가 Passport의 "구글 OAuth 전략"을 호출.
   Passport는 OAuth 표준을 따라 구글로 인증 요청을 보냄.
   구글에서 인증을 완료하면 다시 Passport로 돌아와서 사용자 정보를 auth.js에 전달.
   auth.js는 로그인 성공 후 사용자에게 대시보드로 이동시킴.
+
+# 메타데이터
+
+- 웹페이지에 대한 추가 세부정보
+- <head>에 내장되어 백그라운드에 작동하며 페이지를 방문하는 사용자에게는 보이지 않는다
+- seo향상에 도움이 되는 기술
+- 종류
+  - 제목데이터: <title>
+  - 설명데이터: <meta name="description" content="A brief description of the page content." />
+  - 키워드데이터: <meta name="keywords" content="keyword1, keyword2, keyword3" />
+  - 오픈 그래프 메타데이터: <meta property="og:title" content="Title Here" /> 제목, 설명, 미리보기 제공
+  - 파비콘데이터: <link rel="icon" href="path/to/favicon.ico" />
+- 메타데이터는 그것을 상속하는 모든 페이지에서 상속된다.
